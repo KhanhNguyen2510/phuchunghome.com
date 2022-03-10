@@ -9,7 +9,7 @@
     $("#menu_order").addClass("menu_active");
 </script>
 
-<form id="formSubmit" action="/Administrator/Order/Update" method="post">
+<form id="formSubmit" class="container" action="/Administrator/Order/Update" method="post">
     @Html.AntiForgeryToken()
     <input type="hidden" name="Id" value="@Model.Id" />
     <section class="content">
@@ -51,45 +51,69 @@
                             <div class="col-md-12">
                                 <h4><b>Chi tiết đơn hàng</b></h4>
                                 <div>
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>Hình ảnh</th>
-                                                <th>Tên sản phẩm</th>
-                                                <th>Giá niêm yết</th>
-                                                <th>Giá khuyến mãi</th>
-                                                <th>Số lượng</th>
-                                                <th>Tổng tiền thanh toán</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach (var item in Model.OrderDetails)
-                                            {
-                                                <tr>
-                                                    <td class="text-center">
-                                                        <img src="@item.ProductImage" class="thumbnail" style="width:50px" />
-                                                    </td>
-                                                    <td>@(item.ProductName)</td>
-                                                    <td>@(DataHelper.ToCurrency(item.ProductPrice))</td>
-                                                    <td>@(DataHelper.ToCurrency(item.ProductDiscountPrice))</td>
-                                                    <td>@(item.Qty)</td>
-                                                    <td>@(DataHelper.ToCurrency(item.Qty * item.ProductDiscountPrice))</td>
-                                                </tr>
-                                            }
-                                            <tr>
-                                                <td class="text-right" colspan="5">
-                                                    <h4>Tổng tiền</h4>
-                                                </td>
-                                                <td>
-                                                    <h4 style="color:red">
-                                                        <strong>
-                                                            @(DataHelper.ToCurrency(Model.OrderDetails.Sum(x => x.ProductDiscountPrice * x.Qty)))
-                                                        </strong>
-                                                    </h4>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <div class="container-fluid">
+                                        <!-- DataTales Example -->
+                                        <div class="card shadow mb-4">
+                                            <div class="card-header py-3">
+                                                <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                                            </div>
+
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Hình ảnh</th>
+                                                                <th>Tên sản phẩm</th>
+                                                                <th>Giá niêm yết</th>
+                                                                <th>Giá khuyến mãi</th>
+                                                                <th>Số lượng</th>
+                                                                <th>Tổng tiền thanh toán</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tfoot>
+                                                            <tr>
+                                                                <th>Hình ảnh</th>
+                                                                <th>Tên sản phẩm</th>
+                                                                <th>Giá niêm yết</th>
+                                                                <th>Giá khuyến mãi</th>
+                                                                <th>Số lượng</th>
+                                                                <th>Tổng tiền thanh toán</th>
+                                                            </tr>
+                                                        </tfoot>
+                                                        <tbody>
+                                                            @foreach (var item in Model.OrderDetails)
+                                                            {
+                                                                <tr>
+                                                                    <td class="text-center">
+                                                                        <img src="@item.ProductImage" class="thumbnail" style="width:50px" />
+                                                                    </td>
+                                                                    <td>@(item.ProductName)</td>
+                                                                    <td>@(DataHelper.ToCurrency(item.ProductPrice))</td>
+                                                                    <td>@(DataHelper.ToCurrency(item.ProductDiscountPrice))</td>
+                                                                    <td>@(item.Qty)</td>
+                                                                    <td>@(DataHelper.ToCurrency(item.Qty * item.ProductDiscountPrice))</td>
+                                                                </tr>
+                                                            }
+                                                            <tr>
+                                                                <td class="text-right" colspan="5">
+                                                                    <h4>Tổng tiền</h4>
+                                                                </td>
+                                                                <td>
+                                                                    <h4 style="color:red">
+                                                                        <strong>
+                                                                            @(DataHelper.ToCurrency(Model.OrderDetails.Sum(x => x.ProductDiscountPrice * x.Qty)))
+                                                                        </strong>
+                                                                    </h4>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
