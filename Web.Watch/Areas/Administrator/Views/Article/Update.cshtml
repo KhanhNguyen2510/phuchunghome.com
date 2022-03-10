@@ -11,7 +11,7 @@
 <script src="~/Areas/Administrator/Plugins/ckfinder/ckfinder.js"></script>
 <script src="~/Areas/Administrator/Plugins/ckeditor/ckeditor.js"></script>
 
-<form id="formSubmit" action="/Administrator/Article/Update" method="post">
+<form id="formSubmit" action="/Administrator/Article/Update" class="container" method="post">
     @Html.AntiForgeryToken()
     <input type="hidden" name="Id" value="@Model.Id" />
     <input type="hidden" name="Type" value="@Model.Type" />
@@ -21,7 +21,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>Tiêu đề bài viết <span class="required">(*)</span></label>
+                            <label>Tiêu đề bài viết <span class="text-danger">(*)</span></label>
                             <input type="text" value="@Model.Title" name="Title" class="form-control input-sm" required />
                         </div>
                     </div>
@@ -33,14 +33,18 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-md-12 text-center">
-                        <a href="/Administrator/Article" class="btn btn-default">
-                            Trở lại danh sách
+                        <a href="/Administrator/Article" class="btn btn-secondary btn-icon-split mb-3 mr-3">
+                            <span class="icon text-gray-600">
+                                <i class="fa fa-close"></i>
+                            </span>
+                            <span class="text">Trở lại danh sách</span>
                         </a>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fa fa-save"></i>
-                            Cập nhật
+                        <button type="submit" class="btn btn-success btn-icon-split mb-3">
+                            <span class="icon text-white-50">
+                                <i class="fa fa-save"></i>
+                            </span>
+                            <span class="text"> Lưu lại</span>
                         </button>
                     </div>
                 </div>

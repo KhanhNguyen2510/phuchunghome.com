@@ -1,29 +1,30 @@
 ﻿@using Web.Core.Dto;
 @model List<GalleryDto>
 @{
-    ViewBag.Title = "Gallery";
+    ViewBag.Title = "Bộ sưu tầm";
 }
 
 <script>
     $("#menu_gallery").addClass("menu_active");
 </script>
 
-<section class="content-header">
-    <a href="/Administrator/Gallery/Add" class="btn btn-primary btn-sm">
-        <i class="fa fa-plus"></i>
-        Thêm mới
-    </a>
-</section>
 
-<section class="content">
+<a href="/Administrator/Gallery/Add" class="btn btn-primary btn-sm btn-icon-split ml-4 mb-3">
+    <span class="icon text-white-50">
+        <i class="fa fa-plus"></i>
+    </span>
+    <span class="text">Thêm mới</span>
+</a>
+
+<section class="content container">
     <div class="box box-primary">
         <div class="box-body">
             <div class="row">
                 @foreach (var item in Model)
                 {
                     <div class="col-md-4 text-center">
-                        <img src="@item.Image" class="thumbnail" />
-                        <button onclick="confirmDelete(@item.Id)" type="button" class="btn btn-danger btn-sm">Xóa</button>
+                        <img src="@item.Image" class="img-thumbnail" />
+                        <button onclick="confirmDelete(@item.Id)" type="button" class="btn btn-danger mt-3 btn-sm">Xóa</button>
                     </div>
                 }
             </div>

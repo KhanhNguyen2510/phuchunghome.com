@@ -10,7 +10,7 @@
     $("#menu_user").addClass("menu_active");
 </script>
 
-<form id="formSubmit" action="/Administrator/User/Add" method="post">
+<form id="formSubmit" action="/Administrator/User/Add" class="container" method="post">
     @Html.AntiForgeryToken()
     <section class="content">
         <div class="box box-primary">
@@ -19,24 +19,25 @@
                     @if (!string.IsNullOrWhiteSpace(error))
                     {
                         <div class="col-md-12" style="margin-bottom:10px">
-                            <h4 class="required">@error</h4>
+                            <strong class="text-danger h5">@error</strong>
                         </div>
                     }
+
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label>Tên tài khoản <span class="required">(*)</span></label>
+                            <label>Tên tài khoản <span class="text-danger">(*)</span></label>
                             <input type="text" value="@Model.UserName" name="UserName" class="form-control input-sm" required />
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label>Mật khẩu <span class="required">(*)</span></label>
+                            <label>Mật khẩu <span class="text-danger">(*)</span></label>
                             <input type="password" value="@Model.Password" name="Password" class="form-control input-sm" required />
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label>Họ và tên <span class="required">(*)</span></label>
+                            <label>Họ và tên <span class="text-danger">(*)</span></label>
                             <input type="text" value="@Model.FullName" name="FullName" class="form-control input-sm" required />
                         </div>
                     </div>
@@ -60,12 +61,17 @@
                     </div>
 
                     <div class="col-md-12 text-center">
-                        <a href="/Administrator/User" class="btn btn-default">
-                            Trở lại danh sách
+                        <a href="/Administrator/User" class="btn btn-secondary btn-icon-split mb-3 mr-3">
+                            <span class="icon text-gray-600">
+                                <i class="fa fa-close"></i>
+                            </span>
+                            <span class="text">Trở lại danh sách</span>
                         </a>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fa fa-save"></i>
-                            Cập nhật
+                        <button type="submit" class="btn btn-success btn-icon-split mb-3">
+                            <span class="icon text-white-50">
+                                <i class="fa fa-save"></i>
+                            </span>
+                            <span class="text"> Lưu lại</span>
                         </button>
                     </div>
                 </div>

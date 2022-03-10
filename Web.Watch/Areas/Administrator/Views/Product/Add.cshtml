@@ -14,7 +14,7 @@
 <script src="~/Areas/Administrator/Plugins/ckfinder/ckfinder.js"></script>
 <script src="~/Areas/Administrator/Plugins/ckeditor/ckeditor.js"></script>
 
-<form id="formSubmit" action="/Administrator/Product/Add" method="post">
+<form id="formSubmit" class="container" action="/Administrator/Product/Add" method="post">
     @Html.AntiForgeryToken()
     <section class="content">
         <div class="box box-primary">
@@ -23,9 +23,9 @@
                     <div class="col-md-3 text-center">
                         <div style="margin-bottom:10px">
                             <label>Hình ảnh đại diện sản phẩm</label>
-                            <img id="img" src="~/Resources/Images/gallery.jpg" class="thumbnail" />
+                            <img id="img" src="~/Resources/Images/gallery.jpg" class="img-thumbnail" />
                             <input id="inpImage" type="hidden" name="Image" value="/Resources/Images/gallery.jpg" />
-                            <button type="button" id="button-upload" class="btn btn-success btn-sm">Upload</button>
+                            <button type="button" id="button-upload" class="btn btn-success btn-sm mt-2">Tải ảnh lên</button>
                         </div>
                         <div class="text-left">
                             <div style="margin-bottom:5px">
@@ -40,7 +40,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>Danh mục sản phẩm <span class="required">(*)</span></label>
+                                            <label>Danh mục sản phẩm <span class="text-danger">(*)</span></label>
                                             <select name="MenuId" class="form-control input-sm" required>
                                                 @foreach (var item in menus)
                                                 {
@@ -54,13 +54,13 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>Tên sản phẩm <span class="required">(*)</span></label>
+                                            <label>Tên sản phẩm <span class="text-danger">(*)</span></label>
                                             <input type="text" name="Name" class="form-control input-sm" required />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Giá niêm yết <span class="required">(*)</span></label>
+                                            <label>Giá niêm yết <span class="text-danger">(*)</span></label>
                                             <input type="number" name="Price" value="0" min="0" class="form-control input-sm" required />
                                         </div>
                                     </div>
@@ -99,7 +99,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <label>Thuộc tính sản phẩm <span class="required">(*)</span></label>
+                                        <label>Thuộc tính sản phẩm <span class="text-danger">(*)</span></label>
                                         <table class="table table-bordered">
                                             @for (int i = 0; i < attributes.Count; i++)
                                             {
@@ -118,9 +118,20 @@
                             <div class="col-md-12" style="margin-top:5px">
                                 <div class="nav-tabs-custom">
                                     <ul class="nav nav-tabs">
-                                        <li class="active"><a href="#tab_1" data-toggle="tab">Mô tả ngắn</a></li>
-                                        <li><a href="#tab_2" data-toggle="tab">Mô tả chi tiết mặt hàng</a></li>
-                                        <li><a href="#tab_3" data-toggle="tab">Chế độ bảo hành</a></li>
+                                        <li class="nav-item">
+                                            <a class="nav-link active" href="#tab_1" data-toggle="tab">
+                                                Mô tả ngắn
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#tab_2" data-toggle="tab">
+                                            Mô tả chi tiết mặt hàng
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#tab_3" data-toggle="tab">Chế độ bảo hành</a>
+                                        </li>
+                                        
                                     </ul>
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="tab_1">
@@ -183,13 +194,17 @@
                     </div>
 
                     <div class="col-md-12 text-center">
-                        <a href="/Administrator/Product" class="btn btn-default">
-                            <i class="fa fa-close"></i>
-                            Hủy
+                        <a href="/Administrator/Product" class="btn btn-secondary btn-icon-split mb-3 mr-3">
+                            <span class="icon text-gray-600">
+                                <i class="fa fa-close"></i>
+                            </span>
+                            <span class="text">Hủy</span>
                         </a>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fa fa-save"></i>
-                            Lưu lại
+                        <button type="submit"  class="btn btn-success btn-icon-split mb-3">
+                            <span class="icon text-white-50">
+                                <i class="fa fa-save"></i>
+                            </span>
+                            <span class="text"> Lưu lại</span>
                         </button>
                     </div>
                 </div>
@@ -238,7 +253,7 @@
             $("#box-product-gallery").append(`
                 <div id="product_gallery_${key}" class="col-md-6 text-center">
                     <input id="product_gallery_${key}" type="hidden" class="impHiddenImage" value="${fileUrl}" />
-                    <img id="img" src="${fileUrl}" class="thumbnail" />
+                    <img id="img" src="${fileUrl}" class="img-thumbnail" />
                     <div>
                         <button onclick="deleteProductGallery('product_gallery_${key}')" type="button" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
                     </div>

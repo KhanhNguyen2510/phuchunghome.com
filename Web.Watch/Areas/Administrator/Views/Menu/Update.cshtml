@@ -11,7 +11,7 @@
 
 <script src="~/Areas/Administrator/Plugins/ckfinder/ckfinder.js"></script>
 
-<form action="/Administrator/Menu/Update" method="post">
+<form action="/Administrator/Menu/Update" class="container" method="post">
     @Html.AntiForgeryToken()
     <input type="hidden" name="Id" value="@Model.Id" />
     <section class="content">
@@ -21,9 +21,9 @@
                     <div class="col-md-4 text-center">
                         <div>
                             <label>Hình ảnh</label>
-                            <img id="img" src="@Model.Image" class="thumbnail" />
+                            <img id="img" src="@Model.Image" class="img-thumbnail" />
                             <input id="inpImage" type="hidden" name="Image" value="@Model.Image" />
-                            <button type="button" id="button-upload" class="btn btn-success btn-sm">Upload</button>
+                            <button type="button" id="button-upload" class="btn btn-success mt-3 btn-sm">Tải ảnh lên</button>
                         </div>
                     </div>
                     <div class="col-md-8">
@@ -42,7 +42,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>Tên danh mục <span class="required">(*)</span></label>
+                                    <label>Tên danh mục <span class="text-danger">(*)</span></label>
                                     <input type="text" value="@Model.Name" name="Name" class="form-control input-sm" required />
                                 </div>
                             </div>
@@ -71,12 +71,17 @@
                         </div>
                     </div>
                     <div class="col-md-12 text-center">
-                        <a href="/Administrator/Menu" class="btn btn-default">
-                            Trở lại danh sách
+                        <a href="/Administrator/Menu" class="btn btn-secondary btn-icon-split mb-3 mr-3">
+                            <span class="icon text-gray-600">
+                                <i class="fa fa-close"></i>
+                            </span>
+                            <span class="text">Trở lại danh sách</span>
                         </a>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fa fa-save"></i>
-                            Lưu lại
+                        <button type="submit" class="btn btn-success btn-icon-split mb-3">
+                            <span class="icon text-white-50">
+                                <i class="fa fa-save"></i>
+                            </span>
+                            <span class="text"> Lưu lại</span>
                         </button>
                     </div>
                 </div>

@@ -14,28 +14,26 @@
 <link href="~/Areas/Administrator/Plugins/bower_components/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
 <script src="~/Areas/Administrator/Plugins/bower_components/chart.js/Chart.js"></script>
 
-<section class="content-header">
-    <h1>
-        Tổng quan
-    </h1>
-</section>
-
-<section class="content">
+<section class="content container">
     <div class="row">
         <div class="col-md-12">
             <div class="box box-primary">
                 <div class="box-header">
                     <div class="row">
                         <div class="col-md-9">
-                            <h4 style="margin: 0;">Biều đồ doanh thu trong năm</h4>
+                            <h4 >Biều đồ doanh thu trong năm</h4>
                         </div>
-                        <div class="col-md-3">
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-calendar"></i>
+                        <div class="row container mt-3">
+                            <div class="col-md-4 ">
+                                <div class="form-group">
+                                    <label>Ngày đặt hàng</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"></i></span>
+                                        <input type="text" class="form-control pull-right input-sm" id="reservation">
+                                    </div>
                                 </div>
-                                <input type="text" class="form-control pull-right input-sm" id="reservation">
                             </div>
+
                         </div>
                     </div>
                 </div>

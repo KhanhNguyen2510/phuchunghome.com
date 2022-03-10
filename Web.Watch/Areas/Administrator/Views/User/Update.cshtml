@@ -10,14 +10,14 @@
     $("#menu_user").addClass("menu_active");
 </script>
 
-<section class="content-header">
-    <button onclick="changePassword()" class="btn btn-success btn-sm">
+<button onclick="changePassword()" class="btn btn-success btn-sm ml-4 btn-icon-split mb-3">
+    <span class="icon text-white-50">
         <i class="fa fa-lock"></i>
-        Thay đổi mật khẩu
-    </button>
-</section>
+    </span>
+    <span class="text">Thay đổi mật khẩu</span>
+</button>
 
-<form id="formSubmit" action="/Administrator/User/Update" method="post">
+<form id="formSubmit" class="container" action="/Administrator/User/Update" method="post">
     @Html.AntiForgeryToken()
     <input type="hidden" name="UserName" value="@Model.UserName" />
     <section class="content">
@@ -27,18 +27,18 @@
                     @if (!string.IsNullOrWhiteSpace(error))
                     {
                         <div class="col-md-12" style="margin-bottom:10px">
-                            <h4 class="required">@error</h4>
+                            <h4 class="text-danger">@error</h4>
                         </div>
                     }
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label>Tên tài khoản <span class="required">(*)</span></label>
+                            <label>Tên tài khoản <span class="text-danger">(*)</span></label>
                             <input type="text" value="@Model.UserName" name="UserName" class="form-control input-sm" readonly />
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label>Họ và tên <span class="required">(*)</span></label>
+                            <label>Họ và tên <span class="text-danger">(*)</span></label>
                             <input type="text" value="@Model.FullName" name="FullName" class="form-control input-sm" required />
                         </div>
                     </div>
@@ -60,14 +60,18 @@
                             <input type="text" value="@Model.Email" name="Email" class="form-control input-sm" />
                         </div>
                     </div>
-
                     <div class="col-md-12 text-center">
-                        <a href="/Administrator/User" class="btn btn-default">
-                            Trở lại danh sách
+                        <a href="/Administrator/User" class="btn btn-secondary btn-icon-split mb-3 mr-3">
+                            <span class="icon text-gray-600">
+                                <i class="fa fa-close"></i>
+                            </span>
+                            <span class="text">Trở lại danh sách</span>
                         </a>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fa fa-save"></i>
-                            Cập nhật
+                        <button type="submit" class="btn btn-success btn-icon-split mb-3">
+                            <span class="icon text-white-50">
+                                <i class="fa fa-save"></i>
+                            </span>
+                            <span class="text"> Cập nhật</span>
                         </button>
                     </div>
                 </div>
