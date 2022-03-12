@@ -1,0 +1,15 @@
+﻿
+@media screen and (max-width: 800px) {
+   #hihi {
+        visibility: visible;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    #hihi{
+        display: none;
+        
+    }
+}
+
+

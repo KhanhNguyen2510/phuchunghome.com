@@ -3,8 +3,6 @@
 @{
     WebsiteDto website = UtilService.GetWebsite();
 }
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,22 +16,50 @@
     <meta name="revisit-after" content="@ViewBag.MetaRevisitAfter">
     <meta http-equiv="content-language" content="@ViewBag.MetaContentLanguage" />
     <meta http-equiv="Content-Type" content="@ViewBag.MetaContentType" />
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700,800,900" rel="stylesheet" />
-    <link href="~/Plugins/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Plugins/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="~/Plugins/css/plugins.css" rel="stylesheet" />
-    <link href="~/Plugins/css/responsive.css" rel="stylesheet" />
-    <link href="~/Plugins/css/style-watch.css" rel="stylesheet" />
-    <script src="~/Plugins/js/modernizr-3.5.0.min.js"></script>
-    <script src="~/Plugins/js/jquery.min.js"></script>
+    @*<link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700,800,900" rel="stylesheet" />
+        <link href="~/Plugins/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Plugins/css/font-awesome.min.css" rel="stylesheet" />
+        <link href="~/Plugins/css/plugins.css" rel="stylesheet" />
+        <link href="~/Plugins/css/responsive.css" rel="stylesheet" />
+        <link href="~/Plugins/css/style-watch.css" rel="stylesheet" />
+        <script src="~/Plugins/js/modernizr-3.5.0.min.js"></script>
+        <script src="~/Plugins/js/jquery.min.js"></script>*@
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="~/Plugins/Bootrapnew/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="~/Plugins/Bootrapnew/css/style.css" rel="stylesheet">
+    <link href="~/Plugins/Bootrapnew/styleCustom.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/dcd92f06c4.js" crossorigin="anonymous"></script>
 </head>
 <body>
     @Html.Partial("~/Views/Shared/_Header.cshtml", website)
+    @Html.Partial("~/Views/Shared/_Sidebar.cshtml", website)
     @RenderBody()
     @Html.Partial("~/Views/Shared/_Footer.cshtml", website)
-    <script src="~/Plugins/js/popper.min.js"></script>
-    <script src="~/Plugins/js/bootstrap.min.js"></script>
-    <script src="~/Plugins/js/plugins.js"></script>
-    <script src="~/Plugins/js/watch.js"></script>
+
+    <a href="#" class="btn btn-danger back-to-top" style="border-radius: 50%;"><i class="fa fa-angle-double-up"></i></a>
+
+    @*<script src="~/Plugins/js/popper.min.js"></script>
+        <script src="~/Plugins/js/bootstrap.min.js"></script>
+        <script src="~/Plugins/js/plugins.js"></script>
+        <script src="~/Plugins/js/watch.js"></script>*@
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Plugins/Bootrapnew/lib/easing/easing.min.js"></script>
+    <script src="~/Plugins/Bootrapnew/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="~/Plugins/Bootrapnew/js/main.js"></script>
 </body>
 </html>

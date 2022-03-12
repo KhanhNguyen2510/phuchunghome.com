@@ -4,23 +4,18 @@
 @{
     ProductDto product = Model ?? new ProductDto();
 }
-
-<div class="product-item">
-    <div class="product-thumb">
-        <a href="/san-pham/@product.Alias">
-            <img src="@product.Image" />
-        </a>
+<div class="card product-item border-0">
+    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+        <img class="img-fluid w-100" src="@product.Image" alt="">
     </div>
-    <div class="product-caption">
-        <div class="mb-2">
-            <a href="/san-pham/@product.Alias" class="item-name">@product.Name</a>
+    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+        <h6 class="text-truncate mb-3"><a href="/san-pham/@product.Alias" class="item-name">@product.Name</a></h6>
+        <div class="d-flex justify-content-center">
+            <h6><strong>@(DataHelper.ToCurrency(product.DiscountPrice))₫</strong></h6><h6 class="text-muted ml-2"><del>@(DataHelper.ToCurrency(product.Price))₫</del></h6>
         </div>
-        <div>
-            <span class="product-price">@(DataHelper.ToCurrency(product.Price))đ</span>
-            <span class="product-discount-price">@(DataHelper.ToCurrency(product.DiscountPrice))đ</span>
-        </div>
-        <div class="text-center">
-            <a href="/mua-hang/@product.Id" class="btn btn-buy">Mua ngay</a>
-        </div>
+    </div>
+    <div class="card-footer d-flex justify-content-between bg-light border">
+        <a href="/san-pham/@product.Alias" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>Xem chi tiết</a>
+        <a href="/mua-hang/@product.Id" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Mua ngay</a>
     </div>
 </div>
